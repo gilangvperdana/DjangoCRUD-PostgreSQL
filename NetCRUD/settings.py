@@ -80,10 +80,10 @@ WSGI_APPLICATION = 'NetCRUD.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'EmployeeDB',
-        'USER': 'postgres',
-        'PASSWORD' : '12345',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'django_employeeapp',
+        'USER': 'root',
+        'PASSWORD' : '',
         'HOST' : 'localhost',
     }
 }
