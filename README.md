@@ -46,3 +46,50 @@ you are free to choose import database full or database scheme.
 localhost:8000
 ```
 
+## Django with PostgreSQL on Heroku
+
+```
+heroku login -i
+heroku create gdjangos
+
+Make Database :
+heroku addons:create heroku-postgresql:hobby-dev -a gdjangos
+
+touch Procfile
+---
+web: gunicorn NetCRUD.wsgi
+---
+
+nano NetCRUD/settings.py
+---
+import django_heroku
+django_heroku.settings(locals())
+---
+
+nano NetCRUD/settings.py
+---
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'somenamedb',
+        'USER': 'someuser',
+        'PASSWORD' : 'somepassword',
+        'HOST' : 'somehost',
+    }
+}
+---
+
+git init
+git heroku git:remote -a gdjangos
+git add *
+git commit -am "make it better"
+git push heroku master
+```
+
+## Import Database
+```
+1. Connect to Heroku Database Instance with pgAdmin4
+2. Change owner to user_heroku_database
+3. open pgsql_DBverSchemas
+4. paste to Query tool, then execute (f5)
+```
