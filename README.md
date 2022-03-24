@@ -86,7 +86,7 @@ git commit -am "make it better"
 git push heroku master
 ```
 
-## Import Database
+## Import Database on Heroku
 ```
 1. Connect to Heroku Database Instance with pgAdmin4
 2. Change owner to user_heroku_database
